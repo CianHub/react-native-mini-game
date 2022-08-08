@@ -5,7 +5,9 @@ export const PrimaryButton = ({ children, pressHandler }) => {
   return (
     <View style={styles.buttonOuter}>
       <Pressable
-        style={styles.container}
+        style={({ pressed }) =>
+          pressed ? [styles.pressed, styles.container] : styles.container
+        }
         onPress={pressHandler}
         android_ripple={{ color: '#640233' }}
       >
@@ -31,4 +33,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonOuter: { borderRadius: 28, margin: 4, overflow: 'hidden' },
+  pressed: {
+    opacity: 0.75,
+  },
 });
