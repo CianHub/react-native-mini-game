@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export const PrimaryButton = ({ textValue }) => {
+export const PrimaryButton = ({ children }) => {
   return (
     <View>
-      <Text>{textValue}</Text>
+      <Text>{children}</Text>
     </View>
   );
 };
