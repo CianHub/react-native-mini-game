@@ -5,20 +5,23 @@ import { PrimaryButton } from '../components/PrimaryButton';
 
 export const StartGameScreen = () => {
   return (
-    <>
-      <StatusBar />
-      <View style={styles.container}>
-        <TextInput
-          keyboardType="number-pad"
-          maxLength={2}
-          style={styles.input}
-          autoCapitalize={'none'}
-          autoCorrect={false}
-        />
-        <PrimaryButton>Reset</PrimaryButton>
-        <PrimaryButton>Confirm</PrimaryButton>
+    <View style={styles.container}>
+      <TextInput
+        keyboardType="number-pad"
+        maxLength={2}
+        style={styles.input}
+        autoCapitalize={'none'}
+        autoCorrect={false}
+      />
+      <View style={styles.buttonRow}>
+        <View style={styles.buttonBox}>
+          <PrimaryButton>Reset</PrimaryButton>
+        </View>
+        <View style={styles.buttonBox}>
+          <PrimaryButton>Confirm</PrimaryButton>
+        </View>
       </View>
-    </>
+    </View>
   );
 };
 
@@ -34,6 +37,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.25,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   input: {
     height: 50,
@@ -45,5 +50,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     width: 50,
     textAlign: 'center',
+  },
+  buttonRow: {
+    flexDirection: 'row',
+  },
+  buttonBox: {
+    flex: 1,
   },
 });
