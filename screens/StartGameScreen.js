@@ -8,7 +8,13 @@ export const StartGameScreen = () => {
     <>
       <StatusBar />
       <View style={styles.container}>
-        <TextInput style={styles.input} />
+        <TextInput
+          keyboardType="number-pad"
+          maxLength={2}
+          style={styles.input}
+          autoCapitalize={'none'}
+          autoCorrect={false}
+        />
         <PrimaryButton>Reset</PrimaryButton>
         <PrimaryButton>Confirm</PrimaryButton>
       </View>
