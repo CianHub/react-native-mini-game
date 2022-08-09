@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { TextInput, View, StyleSheet } from 'react-native';
+import { TextInput, View, StyleSheet, Alert } from 'react-native';
 import { PrimaryButton } from '../components/PrimaryButton';
 
 export const StartGameScreen = () => {
@@ -10,7 +10,14 @@ export const StartGameScreen = () => {
     setVal(newVal);
   };
 
-  const saveHandler = () => {};
+  const saveHandler = () => {
+    const chosenNumber = parseInt(val);
+
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      Alert.alert('Please enter a valid number between 1 and 99');
+      return;
+    }
+  };
 
   const resetHandler = () => {};
 
