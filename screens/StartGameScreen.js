@@ -1,12 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { TextInput, View, StyleSheet } from 'react-native';
 import { PrimaryButton } from '../components/PrimaryButton';
 
 export const StartGameScreen = () => {
+  const [val, setVal] = useState('');
+
+  const inputHandler = (newVal) => {
+    setVal(newVal);
+  };
+
+  const saveHandler = () => {};
+
+  const resetHandler = () => {};
+
   return (
     <View style={styles.container}>
       <TextInput
+        onChangeText={inputHandler}
+        value={val}
         keyboardType="number-pad"
         maxLength={2}
         style={styles.input}
@@ -15,10 +27,10 @@ export const StartGameScreen = () => {
       />
       <View style={styles.buttonRow}>
         <View style={styles.buttonBox}>
-          <PrimaryButton>Reset</PrimaryButton>
+          <PrimaryButton pressHandler={resetHandler}>Reset</PrimaryButton>
         </View>
         <View style={styles.buttonBox}>
-          <PrimaryButton>Confirm</PrimaryButton>
+          <PrimaryButton pressHandler={saveHandler}>Confirm</PrimaryButton>
         </View>
       </View>
     </View>
