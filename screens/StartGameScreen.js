@@ -21,6 +21,8 @@ export const StartGameScreen = () => {
       );
       return;
     }
+
+    resetHandler();
   };
 
   const resetHandler = () => {
