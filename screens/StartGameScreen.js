@@ -23,7 +23,9 @@ export const StartGameScreen = () => {
     }
   };
 
-  const resetHandler = () => {};
+  const resetHandler = () => {
+    setVal('');
+  };
 
   return (
     <View style={styles.container}>
