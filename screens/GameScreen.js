@@ -10,11 +10,16 @@ export const GameScreen = () => {
         <Text>Higher</Text>
         <Text>Lower</Text>
       </View>
-      <View>Log Rounds</View>
+      <View>
+        <Text>Log Rounds</Text>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    padding: 12,
+  },
 });
