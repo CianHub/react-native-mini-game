@@ -14,7 +14,11 @@ export const StartGameScreen = () => {
     const chosenNumber = parseInt(val);
 
     if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
-      Alert.alert('Please enter a valid number between 1 and 99');
+      Alert.alert(
+        'Invalid Number',
+        'Please enter a valid number between 1 and 99',
+        [{ text: 'Okay', style: 'destructive', onPress: resetHandler }]
+      );
       return;
     }
   };
