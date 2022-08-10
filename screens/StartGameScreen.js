@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { TextInput, View, StyleSheet, Alert } from 'react-native';
-import { PrimaryButton } from '../components/PrimaryButton';
+import { PrimaryButton } from '../components/UI/PrimaryButton';
 import { Colors } from '../helpers/colors';
 
 export const StartGameScreen = ({ numHandler }) => {

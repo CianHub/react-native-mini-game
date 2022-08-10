@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { Colors } from '../helpers/colors';
+import { Colors } from '../../helpers/colors';
 
 export const PrimaryButton = ({ children, pressHandler }) => {
   return (

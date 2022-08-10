@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Title } from '../components/Title';
+import { Title } from '../components/UI/Title';
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -17,9 +17,8 @@ export const GameScreen = ({ chosenNumber }) => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Title title={"Opponent's Score"} />
-      </View>
+      <Title title={"Opponent's Score"} />
+
       <View></View>
     </View>
   );
