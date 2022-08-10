@@ -19,7 +19,7 @@ export default function App() {
   return (
     <LinearGradient
       style={styles.rootScreen}
-      colors={[Colors.primary800, Colors.accent500]}
+      colors={[Colors.primary700, Colors.accent500]}
     >
       <ImageBackground
         style={styles.img}
