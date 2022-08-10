@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NumberContainer } from '../components/Game/NumberContainer';
 import { Title } from '../components/UI/Title';
+import { PrimaryButton } from '../components/UI/PrimaryButton';
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -12,15 +13,40 @@ function generateRandomBetween(min, max, exclude) {
     return rndNum;
   }
 }
+
+let minBoundary = 1;
+let maxBoundary = 100;
 export const GameScreen = ({ chosenNumber }) => {
-  const initalGuess = generateRandomBetween(1, 100, chosenNumber);
+  const initalGuess = generateRandomBetween(
+    minBoundary,
+    maxBoundary,
+    chosenNumber
+  );
   const [currentGuess, setCurrentGuess] = React.useState(initalGuess);
+
+  const buttonHandler = (direction) => {
+    if (direction === 'lower') {
+      maxBoundary = currentGuess;
+    } else if (direction === 'greater') {
+      minBoundary = currentGuess + 1;
+    }
+    setCurrentGuess(
+      generateRandomBetween(minBoundary, maxBoundary, currentGuess)
+    );
+  };
 
   return (
     <View style={styles.container}>
       <Title title={"Opponent's Score"} />
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View></View>
+      <View>
+        <PrimaryButton pressHandler={() => buttonHandler('greater')}>
+          +
+        </PrimaryButton>
+        <PrimaryButton pressHandler={() => buttonHandler('lower')}>
+          -
+        </PrimaryButton>
+      </View>
     </View>
   );
 };
