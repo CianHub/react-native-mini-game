@@ -11,9 +11,9 @@ export default function App() {
   const numHandler = (newNum) => setNum(newNum);
 
   let screen = num ? (
-    <GameScreen num={num} />
+    <GameScreen chosenNumber={num} />
   ) : (
-    <StartGameScreen numHandler={numHandler} chosenNumber={num} />
+    <StartGameScreen numHandler={numHandler} num={num} />
   );
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import { NumberContainer } from '../components/Game/NumberContainer';
 import { Title } from '../components/UI/Title';
 import { PrimaryButton } from '../components/UI/PrimaryButton';
@@ -25,6 +25,16 @@ export const GameScreen = ({ chosenNumber }) => {
   const [currentGuess, setCurrentGuess] = React.useState(initalGuess);
 
   const buttonHandler = (direction) => {
+    if (
+      (direction === 'lower' && currentGuess < chosenNumber) ||
+      (direction === 'higher' && currentGuess > chosenNumber)
+    ) {
+      Alert("Don't lie!", 'You know that this is wrong...', [
+        { text: 'Sorry!', style: 'cancel' },
+      ]);
+      return;
+    }
+
     if (direction === 'lower') {
       maxBoundary = currentGuess;
     } else if (direction === 'greater') {
@@ -40,10 +50,10 @@ export const GameScreen = ({ chosenNumber }) => {
       <Title title={"Opponent's Score"} />
       <NumberContainer>{currentGuess}</NumberContainer>
       <View>
-        <PrimaryButton pressHandler={() => buttonHandler('greater')}>
+        <PrimaryButton pressHandler={buttonHandler.bind(this, 'greater')}>
           +
         </PrimaryButton>
-        <PrimaryButton pressHandler={() => buttonHandler('lower')}>
+        <PrimaryButton pressHandler={buttonHandler.bind(this, 'lower')}>
           -
         </PrimaryButton>
       </View>
