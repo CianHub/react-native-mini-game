@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { TextInput, View, StyleSheet, Alert } from 'react-native';
 import { PrimaryButton } from '../components/PrimaryButton';
+import { Colors } from '../helpers/colors';
 
 export const StartGameScreen = ({ numHandler }) => {
   const [val, setVal] = useState('');
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     marginTop: 100,
-    backgroundColor: '#4e0329',
+    backgroundColor: Colors.primary800,
     marginHorizontal: 24,
     borderRadius: 8,
     elevation: 4,
@@ -70,10 +71,10 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     fontSize: 32,
-    borderBottomColor: '#ddb52f',
+    borderBottomColor: Colors.accent500,
     borderBottomWidth: 1,
     marginVertical: 8,
-    color: '#ddb52f',
+    color: Colors.accent500,
     fontWeight: 'bold',
     width: 50,
     textAlign: 'center',

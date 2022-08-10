@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { Title } from '../components/title';
+import { View, StyleSheet } from 'react-native';
+import { Title } from '../components/Title';
 
 export const GameScreen = () => {
   return (
