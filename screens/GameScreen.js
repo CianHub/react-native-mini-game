@@ -11,7 +11,10 @@ function generateRandomBetween(min, max, exclude) {
     return rndNum;
   }
 }
-export const GameScreen = () => {
+export const GameScreen = ({ chosenNumber }) => {
+  const initalGuess = generateRandomBetween(1, 100, chosenNumber);
+  const [currentGuess, setCurrentGuess] = React.useState(initalGuess);
+
   return (
     <View style={styles.container}>
       <View>
