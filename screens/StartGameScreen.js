@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { TextInput, View, StyleSheet, Alert, Text } from 'react-native';
+import { Card } from '../components/UI/Card';
 import { PrimaryButton } from '../components/UI/PrimaryButton';
 import { Title } from '../components/UI/Title';
 import { Colors } from '../helpers/colors';
@@ -34,7 +35,7 @@ export const StartGameScreen = ({ numHandler }) => {
   return (
     <View style={styles.root}>
       <Title title={'Guess my number'} />
-      <View style={styles.container}>
+      <Card>
         <Text style={styles.instructionText}>Enter a Number</Text>
         <TextInput
           onChangeText={inputHandler}
@@ -53,7 +54,7 @@ export const StartGameScreen = ({ numHandler }) => {
             <PrimaryButton pressHandler={saveHandler}>Confirm</PrimaryButton>
           </View>
         </View>
-      </View>
+      </Card>
     </View>
   );
 };
@@ -64,20 +65,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   root: { flex: 1, marginTop: 100, alignItems: 'center' },
-  container: {
-    padding: 16,
-    marginTop: 36,
-    backgroundColor: Colors.primary800,
-    marginHorizontal: 24,
-    borderRadius: 8,
-    elevation: 4,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.25,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
   input: {
     height: 50,
     fontSize: 32,
