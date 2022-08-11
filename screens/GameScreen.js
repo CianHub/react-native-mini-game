@@ -17,11 +17,7 @@ function generateRandomBetween(min, max, exclude) {
 let minBoundary = 1;
 let maxBoundary = 100;
 export const GameScreen = ({ chosenNumber, gameOverHandler }) => {
-  const initalGuess = generateRandomBetween(
-    minBoundary,
-    maxBoundary,
-    chosenNumber
-  );
+  const initalGuess = generateRandomBetween(1, 100, chosenNumber);
   const [currentGuess, setCurrentGuess] = React.useState(initalGuess);
 
   useEffect(() => {

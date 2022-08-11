@@ -14,7 +14,10 @@ export default function App() {
     setGameOver(true);
   };
 
-  const numHandler = (newNum) => setNum(newNum);
+  const numHandler = (newNum) => {
+    setNum(newNum);
+    setGameOver(false);
+  };
 
   let screen = num ? (
     <GameScreen chosenNumber={num} gameOverHandler={gameOverHandler} />
