@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { TextInput, View, StyleSheet, Alert } from 'react-native';
+import { TextInput, View, StyleSheet, Alert, Text } from 'react-native';
 import { PrimaryButton } from '../components/UI/PrimaryButton';
 import { Title } from '../components/UI/Title';
 import { Colors } from '../helpers/colors';
@@ -35,6 +35,7 @@ export const StartGameScreen = ({ numHandler }) => {
     <View style={styles.root}>
       <Title title={'Guess my number'} />
       <View style={styles.container}>
+        <Text style={styles.instructionText}>Enter a Number</Text>
         <TextInput
           onChangeText={inputHandler}
           value={val}
@@ -58,6 +59,10 @@ export const StartGameScreen = ({ numHandler }) => {
 };
 
 const styles = StyleSheet.create({
+  instructionText: {
+    color: Colors.accent500,
+    fontSize: 20,
+  },
   root: { flex: 1, marginTop: 100, alignItems: 'center' },
   container: {
     padding: 16,
