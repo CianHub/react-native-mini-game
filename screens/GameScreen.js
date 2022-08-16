@@ -4,6 +4,7 @@ import { NumberContainer } from '../components/Game/NumberContainer';
 import { Title } from '../components/UI/Title';
 import { PrimaryButton } from '../components/UI/PrimaryButton';
 import { InstructionText } from '../components/UI/InstructionText';
+import { Card } from '../components/UI/Card';
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -52,15 +53,19 @@ export const GameScreen = ({ chosenNumber, gameOverHandler }) => {
     <View style={styles.container}>
       <Title title={"Opponent's Score"} />
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
+      <Card>
         <InstructionText>Higher or Lower?</InstructionText>
-        <PrimaryButton pressHandler={buttonHandler.bind(this, 'greater')}>
-          +
-        </PrimaryButton>
-        <PrimaryButton pressHandler={buttonHandler.bind(this, 'lower')}>
-          -
-        </PrimaryButton>
-      </View>
+        <View style={styles.buttons}>
+          <View style={styles.button}>
+            <PrimaryButton pressHandler={buttonHandler.bind(this, 'greater')}>
+              +
+            </PrimaryButton>
+            <PrimaryButton pressHandler={buttonHandler.bind(this, 'lower')}>
+              -
+            </PrimaryButton>
+          </View>
+        </View>
+      </Card>
     </View>
   );
 };
@@ -69,5 +74,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
+  },
+  buttons: {
+    flexDirection: 'row',
+  },
+  button: {
+    flex: 1,
   },
 });
