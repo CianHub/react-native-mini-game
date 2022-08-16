@@ -5,10 +5,16 @@ import { useState } from 'react';
 import { GameScreen } from './screens/GameScreen';
 import { Colors } from './helpers/colors';
 import { GameOverScreen } from './screens/GameOverScreen';
+import { useFonts } from 'expo-font';
 
 export default function App() {
   const [num, setNum] = useState(null);
   const [gameOver, setGameOver] = useState(true);
+
+  useFonts({
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+  });
 
   const gameOverHandler = () => {
     setGameOver(true);
