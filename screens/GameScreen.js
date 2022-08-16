@@ -54,7 +54,9 @@ export const GameScreen = ({ chosenNumber, gameOverHandler }) => {
       <Title title={"Opponent's Score"} />
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card>
-        <InstructionText>Higher or Lower?</InstructionText>
+        <InstructionText style={styles.instructionText}>
+          Higher or Lower?
+        </InstructionText>
         <View style={styles.buttons}>
           <View style={styles.button}>
             <PrimaryButton pressHandler={buttonHandler.bind(this, 'greater')}>
@@ -81,4 +83,5 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
   },
+  instructionText: { marginBottom: 12 },
 });
