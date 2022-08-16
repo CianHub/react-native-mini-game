@@ -34,7 +34,7 @@ export const GameScreen = ({ chosenNumber, gameOverHandler }) => {
       (direction === 'lower' && currentGuess < chosenNumber) ||
       (direction === 'higher' && currentGuess > chosenNumber)
     ) {
-      Alert("Don't lie!", 'You know that this is wrong...', [
+      Alert.alert("Don't lie!", 'You know that this is wrong...', [
         { text: 'Sorry!', style: 'cancel' },
       ]);
       return;
