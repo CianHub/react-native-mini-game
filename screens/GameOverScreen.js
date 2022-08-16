@@ -1,6 +1,16 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 export const GameOverScreen = () => {
-  return <Text>GameOverScreen</Text>;
+  return (
+    <View>
+      <Title>Game Over</Title>
+      <Image
+        source={require('../assets/images/success.png')}
+        resizeMode="cover"
+      />
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({});
