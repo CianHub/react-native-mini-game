@@ -4,7 +4,7 @@ import { Colors } from '../helpers/colors';
 
 export const GameOverScreen = () => {
   return (
-    <View>
+    <View style={styles.root}>
       <Title>Game Over</Title>
       <View style={styles.imageContainer}>
         <Image
@@ -13,6 +13,7 @@ export const GameOverScreen = () => {
           style={styles.image}
         />
       </View>
+      <Text style={styles.text}>You needed X rounds to guess Y</Text>
     </View>
   );
 };
@@ -30,5 +31,11 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+  },
+  root: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
