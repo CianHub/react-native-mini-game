@@ -3,7 +3,11 @@ import { Text, StyleSheet } from 'react-native';
 import { Colors } from '../helpers/colors';
 import { PrimaryButton } from '../components/UI/PrimaryButton';
 
-export const GameOverScreen = () => {
+export const GameOverScreen = ({
+  roundsNumber,
+  userNumber,
+  onStartNewGame,
+}) => {
   return (
     <View style={styles.root}>
       <Title>Game Over</Title>
@@ -15,10 +19,11 @@ export const GameOverScreen = () => {
         />
       </View>
       <Text style={styles.summaryText}>
-        You needed <Text style={styles.highlightText}>X</Text> rounds to guess
-        <Text style={styles.highlightText}>Y</Text>
+        You needed <Text style={styles.highlightText}>{roundsNumber}</Text>{' '}
+        rounds to guess
+        <Text style={styles.highlightText}>{userNumber}</Text>
       </Text>
-      <PrimaryButton title="NEW GAME" onPress={() => {}} />
+      <PrimaryButton title="NEW GAME" onPress={onStartNewGame} />
     </View>
   );
 };

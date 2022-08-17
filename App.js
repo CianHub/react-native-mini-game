@@ -1,7 +1,7 @@
 import { ImageBackground, StyleSheet, SafeAreaView } from 'react-native';
 import { StartGameScreen } from './screens/StartGameScreen';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GameScreen } from './screens/GameScreen';
 import { Colors } from './helpers/colors';
 import { GameOverScreen } from './screens/GameOverScreen';
@@ -11,6 +11,7 @@ import AppLoading from 'expo-app-loading';
 export default function App() {
   const [num, setNum] = useState(null);
   const [gameOver, setGameOver] = useState(true);
+  const [guessRounds, setGuessRounds] = useState(0);
 
   const [fontsLoaded] = useFonts({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -30,6 +31,11 @@ export default function App() {
     setGameOver(false);
   };
 
+  const startGameHandler = () => {
+    setNum(null);
+    setGuessRounds(0);
+  };
+
   let screen = num ? (
     <GameScreen chosenNumber={num} gameOverHandler={gameOverHandler} />
   ) : (
@@ -37,7 +43,13 @@ export default function App() {
   );
 
   if (gameOver && num) {
-    screen = <GameOverScreen />;
+    screen = (
+      <GameOverScreen
+        userNumber={num}
+        roundsNumber={guessRounds}
+        onStartNewGame={startGameHandler}
+      />
+    );
   }
 
   return (
