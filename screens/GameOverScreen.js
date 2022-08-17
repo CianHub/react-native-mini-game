@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View, Image } from 'react-native';
 import { Colors } from '../helpers/colors';
 import { PrimaryButton } from '../components/UI/PrimaryButton';
+import { Title } from '../components/UI/Title';
 
 export const GameOverScreen = ({
   roundsNumber,
@@ -10,7 +11,7 @@ export const GameOverScreen = ({
 }) => {
   return (
     <View style={styles.root}>
-      <Title>Game Over</Title>
+      <Title title={'Game Over'} />
       <View style={styles.imageContainer}>
         <Image
           source={require('../assets/images/success.png')}
@@ -21,7 +22,7 @@ export const GameOverScreen = ({
       <Text style={styles.summaryText}>
         You needed <Text style={styles.highlightText}>{roundsNumber}</Text>{' '}
         rounds to guess
-        <Text style={styles.highlightText}>{userNumber}</Text>
+        <Text style={styles.highlightText}>{` ${userNumber}`}</Text>
       </Text>
       <PrimaryButton title="NEW GAME" onPress={onStartNewGame} />
     </View>

@@ -37,7 +37,7 @@ export default function App() {
   };
 
   let screen = num ? (
-    <GameScreen chosenNumber={num} gameOverHandler={gameOverHandler} />
+    <GameScreen userNumber={num} onGameOver={gameOverHandler} />
   ) : (
     <StartGameScreen numHandler={numHandler} num={num} />
   );
