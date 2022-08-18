@@ -37,7 +37,11 @@ export default function App() {
   };
 
   let screen = num ? (
-    <GameScreen userNumber={num} onGameOver={gameOverHandler} />
+    <GameScreen
+      userNumber={num}
+      onGameOver={gameOverHandler}
+      setGuessRoundNum={setGuessRounds}
+    />
   ) : (
     <StartGameScreen numHandler={numHandler} num={num} />
   );

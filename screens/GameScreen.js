@@ -22,7 +22,7 @@ function generateRandomBetween(min, max, exclude) {
 let minBoundary = 1;
 let maxBoundary = 100;
 
-export function GameScreen({ userNumber, onGameOver }) {
+export function GameScreen({ userNumber, onGameOver, setGuessRoundNum }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [guessRounds, setGuessRounds] = useState([initialGuess]);
@@ -63,6 +63,7 @@ export function GameScreen({ userNumber, onGameOver }) {
     );
     setCurrentGuess(newRndNumber);
     setGuessRounds((prevGuessRounds) => [newRndNumber, ...prevGuessRounds]);
+    setGuessRoundNum(guessRounds.length + 1);
   }
 
   const guessRoundsListLength = guessRounds.length;
@@ -91,9 +92,6 @@ export function GameScreen({ userNumber, onGameOver }) {
         </View>
       </Card>
       <View style={styles.listContainer}>
-        {guessRounds.map((guessRound) => (
-          <Text key={guessRound}>{guessRound}</Text>
-        ))}
         <FlatList
           data={guessRounds}
           renderItem={(itemData) => (
