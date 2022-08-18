@@ -24,7 +24,7 @@ export const GameOverScreen = ({
         rounds to guess
         <Text style={styles.highlightText}>{` ${userNumber}`}</Text>
       </Text>
-      <PrimaryButton title="NEW GAME" onPress={onStartNewGame} />
+      <PrimaryButton pressHandler={onStartNewGame}>NEW GAME</PrimaryButton>
     </View>
   );
 };
