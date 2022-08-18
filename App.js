@@ -22,8 +22,9 @@ export default function App() {
     return <AppLoading />;
   }
 
-  const gameOverHandler = () => {
+  const gameOverHandler = (numberOfRounds) => {
     setGameOver(true);
+    setGuessRounds(numberOfRounds);
   };
 
   const numHandler = (newNum) => {
