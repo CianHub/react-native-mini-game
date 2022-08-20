@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     padding: 24,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
   },
   summaryText: {
     fontFamily: 'open-sans',
