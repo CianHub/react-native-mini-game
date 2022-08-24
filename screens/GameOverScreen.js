@@ -33,7 +33,7 @@ const deviceWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   imageContainer: {
-    borderRadius: 200,
+    borderRadius: deviceWidth < 380 ? 75 : 150,
     overflow: 'hidden',
     borderWidth: 3,
     width: deviceWidth < 380 ? 150 : 300,
