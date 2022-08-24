@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'white',
     padding: 12,
-    fontFamily: 'sopen-sans-bold',
+    fontFamily: 'open-sans-bold',
     width: 300,
     marginBottom: 12,
     maxWidth: '80%',
