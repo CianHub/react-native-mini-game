@@ -4,7 +4,6 @@ import {
   StyleSheet,
   View,
   Image,
-  Dimensions,
   useWindowDimensions,
 } from 'react-native';
 import { Colors } from '../helpers/colors';
@@ -16,6 +15,24 @@ export const GameOverScreen = ({
   userNumber,
   onStartNewGame,
 }) => {
+  const { width, height } = useWindowDimensions();
+
+  let imageSize = 300;
+
+  if (width < 380) {
+    imageSize = 150;
+  }
+
+  if (height < 400) {
+    imageSize = 80;
+  }
+
+  const imageStyle = {
+    width: imageSize,
+    height: imageSize,
+    borderRadius: imageSize / 2,
+  };
+
   return (
     <View style={styles.root}>
       <Title title={'Game Over'} />
@@ -23,7 +40,7 @@ export const GameOverScreen = ({
         <Image
           source={require('../assets/images/success.png')}
           resizeMode="cover"
-          style={styles.image}
+          style={[imageStyle, styles.image]}
         />
       </View>
       <Text style={styles.summaryText}>
@@ -36,15 +53,12 @@ export const GameOverScreen = ({
   );
 };
 
-const deviceWidth = Dimensions.get('window').width;
+//const deviceWidth = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   imageContainer: {
-    borderRadius: deviceWidth < 380 ? 75 : 150,
     overflow: 'hidden',
     borderWidth: 3,
-    width: deviceWidth < 380 ? 150 : 300,
-    height: deviceWidth < 380 ? 150 : 300,
     borderColor: Colors.primary800,
     margin: 36,
   },
