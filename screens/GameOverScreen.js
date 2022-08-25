@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  Dimensions,
+  useWindowDimensions,
+} from 'react-native';
 import { Colors } from '../helpers/colors';
 import { PrimaryButton } from '../components/UI/PrimaryButton';
 import { Title } from '../components/UI/Title';
